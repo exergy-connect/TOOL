@@ -6,7 +6,7 @@
 
 usage()
 {
-    echo "Script to validate whether resource requirements are met"
+    echo "T👀L script to validate whether resource requirements are met"
     echo ""
     echo "$0"
     echo "-h --help"
