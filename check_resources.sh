@@ -45,7 +45,7 @@ while [ "$1" != "" ]; do
             fi
             ;;
         --disk)
-            ROOT_MBS=`df  | awk '/\/$/ { print $4 }'`
+            ROOT_MBS=`df -B1024000 | awk '/\/$/ { print $4 }'`
             if [ "$VALUE" -gt "$ROOT_MBS" ]; then
               echo "Insufficient disk space on /: Need $VALUE MB, got $ROOT_MBS MB"
               exit 4
