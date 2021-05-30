@@ -12,7 +12,8 @@ usage()
     echo "\t-h --help"
     echo "\t--memory=xxx (in MB)"
     echo ""
-    echo "For example: curl https://raw.githubusercontent.com/exergy-connect/TOOL/main/check_resources.sh | bash -s -- --memory=10000"
+    echo "For example: curl -s https://raw.githubusercontent.com/exergy-connect/TOOL/main/check_resources.sh | \\
+                       bash -s -- --memory=10000"
 }
 
 while [ "$1" != "" ]; do
