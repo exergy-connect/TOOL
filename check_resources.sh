@@ -62,5 +62,5 @@ while [ "$1" != "" ]; do
     shift
 done
 
-echo "All requirements satisfied!"
+echo "All T👀L requirements satisfied!"
 exit 0
