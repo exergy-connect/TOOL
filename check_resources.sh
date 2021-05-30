@@ -9,8 +9,8 @@ usage()
     echo "Script to validate whether resource requirements are met"
     echo ""
     echo "$0"
-    echo "\t-h --help"
-    echo "\t--memory=xxx (in MB)"
+    echo "-h --help"
+    echo "--memory=xxx (in MB)"
     echo ""
     echo "For example: curl -s https://raw.githubusercontent.com/exergy-connect/TOOL/main/check_resources.sh | \\
                        bash -s -- --memory=10000"
