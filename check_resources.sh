@@ -12,6 +12,7 @@ usage()
     echo "\t-h --help"
     echo "\t--memory=xxx (in MB)"
     echo ""
+    echo "For example: curl https://raw.githubusercontent.com/exergy-connect/TOOL/main/check_resources.sh | bash -s -- --memory=10000"
 }
 
 while [ "$1" != "" ]; do
@@ -20,11 +21,11 @@ while [ "$1" != "" ]; do
     case $PARAM in
         -h | --help)
             usage
-            exit
+            exit 0
             ;;
         --memory)
             FREE_MEM_MB=`free --mega | awk '/Mem/ { print $4 }'`
-            if [[ $VALUE > $FREE_MEM_MB ]]; then
+            if [ "$VALUE" -gt "$FREE_MEM_MB" ]; then
               echo "Insufficient free memory: Need $VALUE MB, got $FREE_MEM_MB MB"
               exit 2
             else
