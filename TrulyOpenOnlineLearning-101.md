@@ -9,7 +9,8 @@ bash -s -- --memory_mb=1024 --cpus=1 --disk_mb=1024
 ```
 3. Install Netsim tools and Ansible 2.9
 ```
-git clone https://github.com/ipspace/netsim-tools/ && pip3 install -r netsim-tools/requirements.txt --ignore-installed && \
+git clone https://github.com/ipspace/netsim-tools/ && \
+pip3 install -r netsim-tools/requirements.txt --ignore-installed && \
 pip3 install ansible==2.9
 ```
 
@@ -25,12 +26,14 @@ export PATH="netsim-tools:$PATH"
 
 6. Create the topology & launch the lab
 ```
-create-topology -t frr-topology.yml -p -i -c && sudo containerlab deploy -t clab.yml
+create-topology -t frr-topology.yml -p -i -c && \
+sudo containerlab deploy -t clab.yml
 ```
 
 7. Configure the routers
 ```
-initial-config.ansible -t initial && initial-config.ansible -t module -v
+initial-config.ansible -t initial && \
+initial-config.ansible -t module -v
 ```
 
 8. Connect to R2
