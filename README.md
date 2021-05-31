@@ -18,7 +18,7 @@ Who would detect such issues? Probably not Ivan - he has better things to do tha
 
 There is clearly a need for a better, more maintainable model here. And there is an obvious one: Use GitHub
 
-# GitHub-centric e-learning
+# GitHub-centric e-learning💡
 With content provided as GitHub repos, students could start by cloning the repo under their own account. This helps to keep track of all the courses and material that were explored, and allows for students to add comments or corrections. The originating repo owner would get a sense of how popular and relevant their content is, providing guidance for future efforts. Moreover, students could make minor corrections or extend the material and send Pull Requests (PR) to the original author, to show their appreciation and give back. And by doing so, they would learn important digital skills of collaboration in a community, as active participants in the Digital Economy.
 
 What could this look like? Well...
