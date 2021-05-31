@@ -49,3 +49,7 @@ ip link
 ```
 ip addr
 ```
+
+# Wrapping up
+This concludes our first T👀L scenario. Obviously, it's still fairly rough and some things may be broken - but we hope you get the idea.
+It is not our intention to tell you what to learn or how to go about it - that is totally up to you. Good luck!
