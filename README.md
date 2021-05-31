@@ -9,4 +9,7 @@ I've been having some interesting back-and-forth discussions with [Ivan Pepelnja
 * The platform provides limited central resources, commodity cloud servers that are easy to get in general, but hard to customize in the Katacoda environment
 * For students, the lab exercises are read-only - there is no built-in feedback mechanism
 
-As Ivan pointed out, the key issue here isn't the tooling - tools are easily found, and instructions only a Google search away. The problem is getting *quality, updated and well maintained relevant content*.
+As Ivan pointed out, the key issue here isn't the tooling - tools are easily found, and instructions only a Google search away. The problem is getting **quality, updated and well maintained relevant content**.
+
+## High quality maintained content at scale
+
