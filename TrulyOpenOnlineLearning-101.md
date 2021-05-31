@@ -18,9 +18,9 @@ pip3 install ansible==2.9
 sudo bash -c "$(curl -sL https://get-clab.srlinux.dev)"
 ```
 
-5. Set PATH & load auto-completion commands
+5. Set PATH
 ```
-export PATH="netsim-tools:$PATH"; source <(containerlab completion bash)
+export PATH="netsim-tools:$PATH"
 ```
 
 6. Create the topology & launch the lab
