@@ -12,4 +12,16 @@ I've been having some interesting back-and-forth discussions with [Ivan Pepelnja
 As Ivan pointed out, the key issue here isn't the tooling - tools are easily found, and instructions only a Google search away. The problem is getting **quality, updated and well maintained relevant content**.
 
 ## High quality maintained content at scale
+With software, the only constant is change. Things evolve rapidly as millions of developers push the envelope of the possible, and consequently the carefully tested instructions we write today may well break tomorrow. Even in a relatively simple first example, Ivan already reported issues with specific FRR versions (had to use 7.5.0) and [several new image versions](https://hub.docker.com/r/frrouting/frr/tags?page=1&ordering=last_updated) were posted since the April 27 release, just one month ago.
+
+Who would detect such issues? Probably not Ivan - he has better things to do than going through previous lab exercises, making sure they still work. More likely it would be a student, someone trying to follow the instructions at some future point in time. They might try to reach out, or give up, but there is no obvious feedback channel.
+
+There is clearly a need for a better, more maintainable model here. And there is an obvious one: Use GitHub
+
+# GitHub-centric e-learning
+With content provided as GitHub repos, students could start by cloning the repo under their own account. This helps to keep track of all the courses and material that were explored, and allows for students to add comments or corrections. The originating repo owner would get a sense of how popular and relevant their content is, providing guidance for future efforts. Moreover, students could make minor corrections or extend the material and send Pull Requests (PR) to the original author, to show their appreciation and give back. And by doing so, they would learn important digital skills of collaboration in a community, as active participants in the Digital Economy.
+
+What could this look like? Well...
+1. Follow the [Setup instructions](https://github.com/exergy-connect/TOOL/wiki/Setup)
+2. Open the [sample](https://github.com/exergy-connect/TOOL/blob/main/TrulyOpenOnlineLearning-101.md) and follow instructions
 
