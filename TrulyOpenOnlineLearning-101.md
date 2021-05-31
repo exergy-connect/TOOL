@@ -4,7 +4,8 @@
 
 2. Validate that the environment provides sufficient resources for this exercise:
 ```
-curl -s https://raw.githubusercontent.com/exergy-connect/TOOL/main/check_resources.sh | bash -s -- --memory_mb=1024 --cpus=1 --disk_mb=1024
+curl -s https://raw.githubusercontent.com/exergy-connect/TOOL/main/check_resources.sh | \
+bash -s -- --memory_mb=1024 --cpus=1 --disk_mb=1024
 ```
 3. Install Netsim tools and Ansible 2.9
 ```
