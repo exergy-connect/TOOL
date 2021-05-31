@@ -10,12 +10,12 @@ usage()
     echo ""
     echo "$0"
     echo "-h --help"
-    echo "--memory=xxx (in MB)"
+    echo "--memory_mb=xxx (in MB)"
     echo "--cpus=nnn"
-    echo "--disk=ddd (in MB)"
+    echo "--disk_mb=ddd (in MB)"
     echo ""
     echo "For example: curl -s https://raw.githubusercontent.com/exergy-connect/TOOL/main/check_resources.sh | \\
-                       bash -s -- --memory=10000"
+                       bash -s -- --memory_mb=10000"
 }
 
 while [ "$1" != "" ]; do
@@ -26,7 +26,7 @@ while [ "$1" != "" ]; do
             usage
             exit 0
             ;;
-        --memory)
+        --memory_mb)
             FREE_MEM_MB=`free --mega | awk '/Mem/ { print $4 }'`
             if [ "$VALUE" -gt "$FREE_MEM_MB" ]; then
               echo "Insufficient free memory: Need $VALUE MB, got $FREE_MEM_MB MB"
@@ -44,7 +44,7 @@ while [ "$1" != "" ]; do
               echo "CPU count OK (need $VALUE CPUs, got $CPU_COUNT MB)"
             fi
             ;;
-        --disk)
+        --disk_mb)
             ROOT_MBS=`df -B1024000 | awk '/\/$/ { print $4 }'`
             if [ "$VALUE" -gt "$ROOT_MBS" ]; then
               echo "Insufficient disk space on /: Need $VALUE MB, got $ROOT_MBS MB"
