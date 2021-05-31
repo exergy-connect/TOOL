@@ -26,6 +26,7 @@ export PATH="netsim-tools:$PATH"
 
 6. Create the topology & launch the lab
 ```
+curl https://raw.githubusercontent.com/ipspace/katacoda-scenarios/main/netsim-containerlab-101/assets/frr-topology.yml -o frr-topology.yml && \
 create-topology -t frr-topology.yml -p -i -c && \
 sudo containerlab deploy -t clab.yml
 ```
