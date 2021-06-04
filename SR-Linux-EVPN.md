@@ -48,3 +48,8 @@ admin-state enable
 peer-group evpn-rr
 commit now
 ```
+
+3. Check that iBGP peering came up
+```
+/show network-instance default protocols bgp-evpn bgp-instance 1
+```
