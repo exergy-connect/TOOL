@@ -31,10 +31,20 @@ commit now
 1. Add a Route Reflector iBGP group
 ```
 enter candidate
-/network-instance default
+/network-instance default protocols bgp
 group evpn-rr
 peer-as 65000
 evpn
 admin-state enable
+commit now
+```
+
+2. Add each Route Reflector as a peer
+```
+enter candidate
+/network-instance default protocols bgp
+neighbor 1.1.1.1
+admin-state enable
+peer-group evpn
 commit now
 ```
