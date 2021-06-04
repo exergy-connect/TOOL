@@ -12,7 +12,7 @@ TODO: Script that presents an input field to customize IP addresses in the snipp
 enter candidate
 /network-instance default protocols bgp group evpn
 evpn admin-state enable
-route-reflector client true cluster-id 1.1.1.1
+route-reflector client true cluster-id 1.1.0.1
 commit now
 ```
 
@@ -20,7 +20,7 @@ commit now
 ```
 enter candidate
 /network-instance default protocols bgp
-neighbor 1.1.2.1
+neighbor 1.1.1.1
 admin-state enable
 peer-group evpn
 commit now
@@ -43,7 +43,7 @@ commit now
 ```
 enter candidate
 /network-instance default protocols bgp
-neighbor 1.1.1.1
+neighbor 1.1.0.1
 admin-state enable
 peer-group evpn-rr
 commit now
