@@ -112,6 +112,7 @@ ecmp 8
 evi 10000
 vxlan-interface vxlan1.0
 exit
-admin-state enable
+exit
+bgp admin-state enable
 commit now
 ```
