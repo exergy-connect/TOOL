@@ -33,6 +33,7 @@ commit now
 enter candidate
 /network-instance default protocols bgp
 group evpn-rr
+local-as 65000
 peer-as 65000
 evpn
 admin-state enable
