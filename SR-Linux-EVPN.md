@@ -107,7 +107,7 @@ route-distinguisher rd 65000:10000
 route-target import-rt target:65000:10000 export-rt target:65000:10000
 exit
 exit
-bgp-evpn instance 1
+bgp-evpn bgp-instance 1
 ecmp 8
 evi 10000
 vxlan-interface vxlan1.0
