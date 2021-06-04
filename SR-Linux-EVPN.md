@@ -16,7 +16,7 @@ route-reflector client true cluster-id 1.1.1.1
 commit now
 ```
 
-2. Add multi-hop iBGP peering for each leaf, using loopback IPs
+2. Add multi-hop iBGP peering for each leaf, using loopback IPs (note: at least up to R21.3 dynamic neighbors are not supported for BGP-VPN)
 ```
 enter candidate
 /network-instance default protocols bgp
