@@ -39,12 +39,12 @@ admin-state enable
 commit now
 ```
 
-2. Add each Route Reflector as a peer
+2. Add each Route Reflector as an iBGP peer
 ```
 enter candidate
 /network-instance default protocols bgp
 neighbor 1.1.1.1
 admin-state enable
-peer-group evpn
+peer-group evpn-rr
 commit now
 ```
