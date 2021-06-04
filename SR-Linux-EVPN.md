@@ -113,6 +113,7 @@ evi 10000
 vxlan-interface vxlan1.0
 exit
 exit
+bgp autonomous-system 65000
 bgp admin-state enable
 commit now
 ```
