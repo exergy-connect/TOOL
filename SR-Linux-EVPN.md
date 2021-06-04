@@ -114,7 +114,7 @@ vxlan-interface vxlan1.0
 exit
 exit
 bgp autonomous-system 65000
-bgp router-id 1.1.0.1
+bgp router-id 1.1.1.1
 bgp admin-state enable
 commit now
 ```
