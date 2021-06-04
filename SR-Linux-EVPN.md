@@ -12,8 +12,7 @@ TODO: Script that presents an input field to customize IP addresses in the snipp
 enter candidate
 /network-instance default
 protocols bgp group evpn
-evpn
-admin-state enable
+evpn admin-state enable
 route-reflector client true cluster-id 1.1.1.1
 commit now
 ```
