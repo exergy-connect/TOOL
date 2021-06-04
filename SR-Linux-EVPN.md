@@ -10,7 +10,9 @@ TODO: Script that presents an input field to customize IP addresses in the snipp
 1. Configure each spine as an iBGP EVPN Route Reflector, using the default network instance:
 ```
 enter candidate
-/network-instance default protocols bgp group evpn
+/network-instance default protocols bgp 
+evpn rapid-update true
+group evpn
 ipv4-unicast admin-state disable
 ipv6-unicast admin-state disable
 evpn admin-state enable
@@ -43,6 +45,7 @@ commit now
 ```
 enter candidate
 /network-instance default protocols bgp
+evpn rapid-update true
 group evpn-rr
 local-as 65000
 exit
