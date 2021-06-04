@@ -3,19 +3,8 @@
 The following CLI snippets configure an SR Linux Leaf/Spine topology for BGP EVPN IPv4, assuming the underlay is already setup
 
 ```js script  
-import './demo-wc-card.js';  
-import { html } from 'lit-html';  
+TODO: Script that presents an input field to customize IP addresses in the snippets below
 ```  
-
-# This is my component  
-
-```js story  
-export const demo = () => html`  
-<demo-wc-card header="HEADER"></demo-wc-card>
-<input type="text">Enter spine loopback IP</input>
-`;  
-```
-
 ## Spines
 
 1. Configure each spine as an iBGP Route Reflector, using the default network instance:
