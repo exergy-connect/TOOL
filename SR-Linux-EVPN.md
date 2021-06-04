@@ -81,12 +81,12 @@ enter candidate
 commit now
 ```
 
-2. Create a sample overlay VRF on 2 leaves, and verify connectivity
+2. Create a sample overlay L3 VRF on 2 leaves, and verify connectivity
 ```
 enter candidate
 /tunnel-interface vxlan1
 vxlan-interface 0
-type bridged
+type routed
 ingress vni 10000
 egress source-ip use-system-ipv4-address
 
