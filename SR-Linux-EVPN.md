@@ -71,3 +71,48 @@ commit now
 ```
 /show network-instance default protocols bgp neighbor
 ```
+
+## VXLAN Datapath between leaves
+
+1. Create a VXLAN system interface on each leaf
+```
+enter candidate
+/tunnel-interface vxlan1
+commit now
+```
+
+2. Create a sample overlay VRF on 2 leaves, and verify connectivity
+```
+enter candidate
+/tunnel-interface vxlan1
+vxlan-interface 0
+type bridge
+ingress vni 10000
+egress source-ip use-system-ipv4-address
+
+/interface ethernet-1/1 
+vlan-tagging true
+subinterface 1000
+admin-state enable
+vlan encap single-tagged vlan-id 1000
+
+/network-instance overlay-vrf
+type ip-vrf
+interface ethernet-1/1.1000
+exit
+vxlan-interface vxlan1.0
+exit
+protocols bgp-vpn bgp-instance 1 
+route-distinguisher rd 65000:10000
+route-target import-rt target:65000:10000 export-rt target:65000:10000
+exit
+exit
+bgp-evpn instance 1
+ecmp 8
+evi 10000
+vxlan-interface vxlan1.0
+exit
+exit
+admin-state enable
+commit now
+```
