@@ -86,7 +86,7 @@ commit now
 enter candidate
 /tunnel-interface vxlan1
 vxlan-interface 0
-type bridge
+type bridged
 ingress vni 10000
 egress source-ip use-system-ipv4-address
 
