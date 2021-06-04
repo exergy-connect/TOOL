@@ -34,6 +34,7 @@ enter candidate
 /network-instance default protocols bgp
 group evpn-rr
 local-as 65000
+exit
 peer-as 65000
 evpn
 admin-state enable
