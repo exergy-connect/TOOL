@@ -10,8 +10,7 @@ TODO: Script that presents an input field to customize IP addresses in the snipp
 1. Configure each spine as an iBGP Route Reflector, using the default network instance:
 ```
 enter candidate
-/network-instance default
-protocols bgp group evpn
+/network-instance default protocols bgp group evpn
 evpn admin-state enable
 route-reflector client true cluster-id 1.1.1.1
 commit now
@@ -20,7 +19,7 @@ commit now
 2. Add multi-hop iBGP peering for each leaf, using loopback IPs
 ```
 enter candidate
-/network-instance default
+/network-instance default protocols bgp
 neighbor 1.1.2.1
 admin-state enable
 peer-group evpn
