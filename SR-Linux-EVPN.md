@@ -93,8 +93,9 @@ egress source-ip use-system-ipv4-address
 /interface ethernet-1/3
 vlan-tagging true
 subinterface 1000
-admin-state enable
+ipv4 address 10.10.10.1/24
 vlan encap single-tagged vlan-id 1000
+admin-state enable
 
 /network-instance overlay-vrf
 type ip-vrf
