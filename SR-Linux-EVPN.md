@@ -67,7 +67,7 @@ peer-group evpn-rr
 commit now
 ```
 
-3. Check that iBGP peering came up
+3. Check that iBGP peering came up (assumes loopback IPs are advertised)
 ```
 /show network-instance default protocols bgp neighbor
 ```
