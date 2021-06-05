@@ -103,7 +103,6 @@ exit
 vxlan-interface vxlan1.0
 exit
 protocols bgp-vpn bgp-instance 1 
-route-distinguisher rd 65000:10000
 route-target import-rt target:65000:10000 export-rt target:65000:10000
 exit
 exit
