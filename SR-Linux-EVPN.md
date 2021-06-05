@@ -90,7 +90,7 @@ type routed
 ingress vni 10000
 egress source-ip use-system-ipv4-address
 
-/interface ethernet-1/1 
+/interface ethernet-1/3
 vlan-tagging true
 subinterface 1000
 admin-state enable
@@ -98,7 +98,7 @@ vlan encap single-tagged vlan-id 1000
 
 /network-instance overlay-vrf
 type ip-vrf
-interface ethernet-1/1.1000
+interface ethernet-1/3.1000
 exit
 vxlan-interface vxlan1.0
 exit
