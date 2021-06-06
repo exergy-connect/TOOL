@@ -135,6 +135,7 @@ enter candidate
 type bridged
 delete ipv4
 delete ipv6
+delete vlan encap
 vlan encap untagged
 commit now
 ```
