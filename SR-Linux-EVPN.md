@@ -78,7 +78,7 @@ commit now
 ```
 enter candidate
 /interface system0 subinterface 0
-ipv4 address ${/interface[name=lo0]/subinterface[index=0]/ipv4/address/ip-prefix}
+ipv4 address ${/network-instance[name=default]/protocols/bgp/router-id}/32
 /network-instance default interface system0.0
 /tunnel-interface vxlan1
 commit now
