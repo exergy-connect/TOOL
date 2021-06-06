@@ -121,9 +121,19 @@ admin-state enable
 commit now
 ```
 
-If the system complains about a mismatch of tagged and untagged traffic, change the subinterface to be tagged:
+If the system complains about a mismatch of tagged and untagged traffic on the same interface, change the subinterface to be tagged:
 ```
 enter candidate
 /interface ethernet-1/3 subinterface 0 vlan encap single-tagged vlan-id 1
 commit now
 ```
+
+Alternatively, one vlan can remain untagged, but in that case this vlan must be bridged, and cannot also have an IP on the interface:
+```
+enter candidate
+/interface ethernet-1/3 subinterface 0
+type bridged
+vlan encap untagged
+commit now
+```
+
