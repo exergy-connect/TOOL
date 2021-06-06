@@ -133,6 +133,8 @@ Alternatively, one vlan can remain untagged, but in that case this vlan must be 
 enter candidate
 /interface ethernet-1/3 subinterface 0
 type bridged
+delete ipv4
+delete ipv6
 vlan encap untagged
 commit now
 ```
