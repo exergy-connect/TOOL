@@ -95,6 +95,7 @@ vlan-tagging true
 subinterface 1000
 ipv4 address 10.10.10.1/24
 exit
+exit
 vlan encap single-tagged vlan-id 1000
 admin-state enable
 
