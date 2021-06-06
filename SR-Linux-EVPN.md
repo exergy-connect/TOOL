@@ -120,3 +120,10 @@ exit
 admin-state enable
 commit now
 ```
+
+If the system complains about a mismatch of tagged and untagged traffic, change the subinterface to be tagged:
+```
+enter candidate
+/interface ethernet-1/3 subinterface 0 vlan encap single-tagged vlan-id 1
+commit now
+```
