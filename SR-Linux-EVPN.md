@@ -7,7 +7,7 @@ TODO: Script that presents an input field to customize IP addresses in the snipp
 ```  
 ## Spines
 
-1. Configure each spine as an iBGP EVPN Route Reflector, using the default network instance:
+1. Configure each spine as an iBGP EVPN Route Reflector, using the default network instance (uses CLI enhancement to resolve router-id):
 ```
 enter candidate
 /network-instance default protocols bgp 
@@ -16,7 +16,7 @@ group evpn
 ipv4-unicast admin-state disable
 ipv6-unicast admin-state disable
 evpn admin-state enable
-route-reflector client true cluster-id 1.1.0.1
+route-reflector client true cluster-id ${/network-instance[name=default]/protocols/bgp/router-id}
 commit now
 ```
 
