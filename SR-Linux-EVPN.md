@@ -81,7 +81,6 @@ enter candidate
 subinterface 0
 ipv4 address ${/interface[name=lo0]/subinterface[index=0]/ipv4/address/ip-prefix}
 /network-instance default 
-delete interface lo0.0
 interface system0.0
 /tunnel-interface vxlan1
 commit now
