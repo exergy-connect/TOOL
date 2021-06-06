@@ -74,9 +74,13 @@ commit now
 
 ## VXLAN Datapath between leaves
 
-1. Create a VXLAN system interface on each leaf
+1. Create a VXLAN system interface on each leaf, and a tunnel interface
 ```
 enter candidate
+/interface system0
+subinterface 0
+ipv4 address ${/interface[name=lo0]/subinterface[index=0]/ipv4/address}
+/network-instance default interface system0.0
 /tunnel-interface vxlan1
 commit now
 ```
