@@ -20,22 +20,23 @@ route-reflector client true cluster-id ${/network-instance[name=default]/protoco
 commit now
 ```
 
-2. Add multi-hop iBGP peering for each leaf, using loopback IPs
-```
-enter candidate
-/network-instance default protocols bgp
-neighbor 1.1.1.1
-admin-state enable
-peer-group evpn
-commit now
-```
-Alternatively, use dynamic peering:
+2. Add multi-hop iBGP peering for each leaf, using loopback IPs and dynamic peering
 ```
 enter candidate
 /network-instance default protocols bgp
 dynamic-neighbors accept match 1.1.1.0/24
 peer-group evpn
 allowed-peer-as [${/network-instance[name=default]/protocols/bgp/autonomous-system}]
+commit now
+```
+
+Alternatively, add each peer by its IP address
+```
+enter candidate
+/network-instance default protocols bgp
+neighbor 1.1.1.1
+admin-state enable
+peer-group evpn
 commit now
 ```
 
