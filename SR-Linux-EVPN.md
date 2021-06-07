@@ -110,16 +110,12 @@ exit
 exit
 bgp-evpn bgp-instance 1
 evi 10000
-delete ecmp
+ecmp 8
 admin-state enable
 exit
 exit
 exit
 admin-state enable
-```
-For L3 services you can configure ECMP to use multiple paths:
-```
-/network-instance overlay-vrf protocols bgp-evpn bgp-instance 1 ecmp 8
 ```
 
 Add a VXLAN interface, with the correct type:
