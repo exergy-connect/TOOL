@@ -136,8 +136,6 @@ subinterface 1000
 type ${/network-instance[name=overlay-vrf]/type!!!}
 delete ipv4
 delete ipv6
-exit
-exit
 vlan encap single-tagged vlan-id 1000
 admin-state enable
 /network-instance overlay-vrf
