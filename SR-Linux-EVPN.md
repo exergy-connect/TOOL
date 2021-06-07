@@ -190,6 +190,9 @@ policy export-loopbacks {
     }
   }
 }
-/network-instance default protocols bgp group spines export-policy export-loopbacks
+/network-instance default protocols bgp
+delete import-policy
+delete export-policy
+group spines export-policy export-loopbacks
 commit now
 ```
