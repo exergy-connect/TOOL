@@ -85,15 +85,32 @@ ipv4 address ${/network-instance[name=default]/protocols/bgp/router-id}/32
 commit now
 ```
 
-2. Create a sample overlay L3 VRF on 2 leaves, and verify connectivity
+2. Create a sample overlay L2 or L3 VRF on 2 leaves, and verify connectivity
+
+L2 (annotated):
 ```
 enter candidate
 /tunnel-interface vxlan1
 vxlan-interface 0
-type routed
+type bridged !!! mac-vrf
 ingress vni 10000
 egress source-ip use-system-ipv4-address
+commit now
+```
 
+L3 (annotated):
+```
+enter candidate
+/tunnel-interface vxlan1
+vxlan-interface 0
+type bridged !!! ip-vrf
+ingress vni 10000
+egress source-ip use-system-ipv4-address
+commit now
+```
+
+Service, selects the correct type based on your choice of snippets above
+```
 /interface ethernet-1/3
 vlan-tagging true
 subinterface 1000
@@ -104,7 +121,7 @@ vlan encap single-tagged vlan-id 1000
 admin-state enable
 
 /network-instance overlay-vrf
-type ip-vrf
+type ${/tunnel-interface[name=vxlan1]/type!!!}
 interface ethernet-1/3.1000
 exit
 vxlan-interface vxlan1.0
