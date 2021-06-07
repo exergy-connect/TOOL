@@ -146,3 +146,7 @@ vlan encap untagged
 commit now
 ```
 
+To verify that EVPN routes are being sent to the Route Reflector (spines):
+```
+/show network-instance default protocols bgp neighbor 1.1.0.1 advertised-routes evpn
+```
