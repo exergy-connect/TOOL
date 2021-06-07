@@ -148,6 +148,7 @@ enter candidate
 /interface ethernet-1/3 subinterface 1000
 ipv4 address 10.10.10.1/24
 commit now
+# use 'discard now' to undo
 ```
 
 If the system complains about a mismatch of tagged and untagged traffic on the same L3 interface, change the subinterface to be tagged:
