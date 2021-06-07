@@ -130,6 +130,7 @@ ingress vni 10000
 egress source-ip use-system-ipv4-address
 /network-instance overlay-vrf 
 vxlan-interface vxlan1.0
+exit
 protocols bgp-evpn bgp-instance 1 vxlan-interface vxlan1.0
 ```
 
