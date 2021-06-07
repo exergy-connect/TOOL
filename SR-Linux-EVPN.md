@@ -142,7 +142,7 @@ interface ethernet-1/3.1000
 commit now
 ```
 
-For L3 you can add an IP address:
+For L3 you can add an IP address: ( could annotate !!!type=bridged,ip=# for L2, and comment out )
 ```
 enter candidate
 /interface ethernet-1/3 subinterface 1000
