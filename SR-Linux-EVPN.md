@@ -134,7 +134,8 @@ Add a client interface, and commit:
 vlan-tagging true
 subinterface 1000
 type ${/network-instance[name=overlay-vrf]/type!!!}
-ipv4 address 10.10.10.1/24
+delete ipv4
+delete ipv6
 exit
 exit
 vlan encap single-tagged vlan-id 1000
@@ -144,7 +145,15 @@ interface ethernet-1/3.1000
 commit now
 ```
 
-If the system complains about a mismatch of tagged and untagged traffic on the same interface, change the subinterface to be tagged:
+For L3 you can add an IP address:
+```
+enter candidate
+/interface ethernet-1/3 subinterface 1000
+ipv4 address 10.10.10.1/24
+commit now
+```
+
+If the system complains about a mismatch of tagged and untagged traffic on the same L3 interface, change the subinterface to be tagged:
 ```
 enter candidate
 /interface ethernet-1/3 subinterface 0 vlan encap 
@@ -152,19 +161,7 @@ delete untagged
 single-tagged vlan-id 1
 commit now
 ```
-
-Alternatively, one vlan can remain untagged, but in that case this vlan must be bridged, and cannot also have an IP on the interface:
-```
-enter candidate
-/interface ethernet-1/3 subinterface 0
-type bridged
-delete ipv4
-delete ipv6
-delete vlan encap
-vlan encap untagged
-commit now
-```
-
+## Verification
 To verify that EVPN routes are being sent to the Route Reflector (spines):
 ```
 /show network-instance default protocols bgp neighbor 1.1.0.1 advertised-routes evpn
