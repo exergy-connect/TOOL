@@ -30,7 +30,7 @@ allowed-peer-as [${/network-instance[name=default]/protocols/bgp/autonomous-syst
 commit now
 ```
 
-Alternatively, add each peer by its IP address
+Alternatively, add each peer by its IP address; this is more cumbersome in operations, as spine configs must be modified each time a leaf is added
 ```
 enter candidate
 /network-instance default protocols bgp
