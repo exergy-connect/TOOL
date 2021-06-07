@@ -168,3 +168,26 @@ To verify that EVPN routes are being sent to the Route Reflector (spines):
 ```
 /show network-instance default protocols bgp neighbor 1.1.0.1 advertised-routes evpn
 ```
+
+## Fabric and overlay export policies
+
+Fabric export policy
+```
+/routing-policy
+prefix-set loopbacks {
+   prefix 1.1.0.0/16 mask-length-range 32..32 {
+   }
+}
+policy export-loopbacks {
+  statement 10 {
+    match {
+        prefix-set loopbacks
+    }
+    action {
+        accept {
+        }
+    }
+  }
+}
+/network-instance default protocols bgp group spines export-policy export-loopbacks
+```
