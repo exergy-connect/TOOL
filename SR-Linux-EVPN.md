@@ -87,45 +87,23 @@ commit now
 
 2. Create a sample overlay L2 or L3 VRF on 2 leaves, and verify connectivity
 
-L2 (annotated):
+Either L2 (annotated):
 ```
 enter candidate
-/tunnel-interface vxlan1
-vxlan-interface 0
-type bridged !!! mac-vrf
-ingress vni 10000
-egress source-ip use-system-ipv4-address
-commit now
-```
-
-L3 (annotated):
-```
-enter candidate
-/tunnel-interface vxlan1
-vxlan-interface 0
-type bridged !!! ip-vrf
-ingress vni 10000
-egress source-ip use-system-ipv4-address
-commit now
-```
-
-Service, selects the correct type based on your choice of snippets above
-```
-/interface ethernet-1/3
-vlan-tagging true
-subinterface 1000
-ipv4 address 10.10.10.1/24
-exit
-exit
-vlan encap single-tagged vlan-id 1000
-admin-state enable
-
 /network-instance overlay-vrf
-type ${/tunnel-interface[name=vxlan1]/type!!!}
-interface ethernet-1/3.1000
-exit
-vxlan-interface vxlan1.0
-exit
+type mac-vrf !!! bridged
+```
+
+Or L3 (annotated):
+```
+enter candidate
+/network-instance overlay-vrf
+type ip-vrf !!! routed
+```
+
+Configure BGP EVPN:
+```
+/network-instance overlay-vrf
 protocols bgp-vpn bgp-instance 1 
 route-target import-rt target:65000:10000 export-rt target:65000:10000
 exit
@@ -133,12 +111,37 @@ exit
 bgp-evpn bgp-instance 1
 ecmp 8
 evi 10000
+admin-state enable
+exit
+exit
+exit
+admin-state enable
+```
+
+Add a VXLAN interface, with the correct type:
+```
+/tunnel-interface vxlan1
+vxlan-interface 0
+type ${/network-instance[name=overlay-vrf]/type!!!}
+ingress vni 10000
+egress source-ip use-system-ipv4-address
+/network-instance overlay-vrf
 vxlan-interface vxlan1.0
+```
+
+Add a client interface, and commit:
+```
+/interface ethernet-1/3
+vlan-tagging true
+subinterface 1000
+type ${/network-instance[name=overlay-vrf]/type!!!}
+ipv4 address 10.10.10.1/24
+exit
+exit
+vlan encap single-tagged vlan-id 1000
 admin-state enable
-exit
-exit
-exit
-admin-state enable
+/network-instance overlay-vrf
+interface ethernet-1/3.1000
 commit now
 ```
 
