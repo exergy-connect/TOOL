@@ -173,6 +173,7 @@ To verify that EVPN routes are being sent to the Route Reflector (spines):
 
 Fabric export policy
 ```
+enter candidate
 /routing-policy
 prefix-set loopbacks {
    prefix 1.1.0.0/16 mask-length-range 32..32 {
@@ -190,4 +191,5 @@ policy export-loopbacks {
   }
 }
 /network-instance default protocols bgp group spines export-policy export-loopbacks
+commit now
 ```
