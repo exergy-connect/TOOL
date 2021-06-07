@@ -74,14 +74,13 @@ commit now
 
 ## VXLAN Datapath between leaves
 
-1. Create a VXLAN system interface on each leaf, and a tunnel interface
+1. Create a VXLAN system interface on each leaf, and put it in the default global routing context
 ```
 enter candidate
 /interface system0 subinterface 0
 ipv4 address ${/network-instance[name=default]/protocols/bgp/router-id}/32
 /interface lo0 subinterface 0 delete ipv4
 /network-instance default interface system0.0
-/tunnel-interface vxlan1
 commit now
 ```
 
