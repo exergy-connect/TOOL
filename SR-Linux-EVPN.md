@@ -110,6 +110,7 @@ exit
 bgp-evpn bgp-instance 1
 ecmp 8
 evi 10000
+vxlan-interface system0.0
 admin-state enable
 exit
 exit
@@ -124,9 +125,7 @@ vxlan-interface 0
 type ${/network-instance[name=overlay-vrf]/type!!!}
 ingress vni 10000
 egress source-ip use-system-ipv4-address
-/network-instance overlay-vrf 
-interface vxlan1.0
-protocols bgp-evpn bgp-instance 1 vxlan-interface vxlan1.0
+/network-instance overlay-vrf interface vxlan1.0
 ```
 
 Add a client interface, and commit:
