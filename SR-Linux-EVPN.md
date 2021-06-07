@@ -109,6 +109,7 @@ exit
 exit
 bgp-evpn bgp-instance 1
 evi 10000
+delete ecmp
 admin-state enable
 exit
 exit
