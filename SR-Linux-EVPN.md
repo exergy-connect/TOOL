@@ -187,10 +187,12 @@ To verify that EVPN routes are being sent to the Route Reflector (spines):
 For example using Alpine Linux:
 ```
 docker exec -it clab-evpn-lab-h1 /bin/sh
+HOST_ID=$(echo `hostname -s` | sed 's/[^0-9]*//g')
+
 ip link add link e1-1 name e1-1.1000 type vlan id 1000
 ip link set e1-1.1000 up
-ip a add 192.168.1.2/24 dev e1-1.1000
-ip -6 a add 2000:192:168:1::2/64 dev e1-1.1000
+ip a add 192.168.1.${HOST_ID}/24 dev e1-1.1000
+ip -6 a add 2000:192:168:1::${HOST_ID}/64 dev e1-1.1000
 ```
 
 ## Fabric and overlay export policies
