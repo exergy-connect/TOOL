@@ -215,6 +215,6 @@ policy export-loopbacks {
 /network-instance default protocols bgp
 delete import-policy
 delete export-policy
-group spines export-policy export-loopbacks
+group ${HOSTNAME|'leaves' if 'spine' in _ else 'spines'} export-policy export-loopbacks
 commit now
 ```
