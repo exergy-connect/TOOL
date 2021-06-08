@@ -6,13 +6,13 @@ Before you start, make sure that the node you're working on is annotated with it
 For spine1/leaf1:
 ```
 enter candidate
-/network-instance default protocols bgp router-id ${/network-instance[name=default]/protocols/bgp/router-id} !!! 1
+/system !!! 1
 commit now
 ```
 For spine2/leaf2:
 ```
 enter candidate
-/network-instance default protocols bgp router-id ${/network-instance[name=default]/protocols/bgp/router-id} !!! 2
+/system !!! 2
 commit now
 ```
 (etc.)
