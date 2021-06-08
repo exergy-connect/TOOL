@@ -42,12 +42,13 @@ commit now
 
 ## Leaves
 
-1. Add a Route Reflector iBGP group, EVPN-only
+1. Add a Route Reflector iBGP group, EVPN-only, using loopback interface as source
 ```
 enter candidate
 /network-instance default protocols bgp
 evpn rapid-update true
 group evpn-rr
+transport local-address ${/network-instance[name=default]/protocols/bgp/router-id}
 local-as 65000
 exit
 peer-as 65000
@@ -58,12 +59,11 @@ admin-state enable
 commit now
 ```
 
-2. Add each Route Reflector as an iBGP peer, using loopback interface as source
+2. Add each Route Reflector as an iBGP peer
 ```
 enter candidate
 /network-instance default protocols bgp
 neighbor 1.1.0.1
-transport local-address ${/network-instance[name=default]/protocols/bgp/router-id}
 admin-state enable
 peer-group evpn-rr
 commit now
