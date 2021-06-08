@@ -1,10 +1,22 @@
 # SR Linux BGP EVPN configuration
 
-The following CLI snippets configure an SR Linux Leaf/Spine topology for BGP EVPN IPv4, assuming the underlay is already setup
+The following CLI snippets configure an SR Linux Leaf/Spine topology for BGP EVPN IPv4, assuming the underlay is already setup.
+Before you start, make sure that the node you're working on is annotated with its relative ID.
 
-```js script  
-TODO: Script that presents an input field to customize IP addresses in the snippets below
-```  
+For spine1/leaf1:
+```
+enter candidate
+/network-instance default protocols bgp router-id ${/network-instance[name=default]/protocols/bgp/router-id} !!! 1
+commit now
+```
+For spine2/leaf2:
+```
+enter candidate
+/network-instance default protocols bgp router-id ${/network-instance[name=default]/protocols/bgp/router-id} !!! 2
+commit now
+```
+(etc.)
+
 ## Spines
 
 1. Configure each spine as an iBGP EVPN Route Reflector, using the default network instance (uses CLI enhancement to resolve router-id):
