@@ -160,10 +160,11 @@ commit now
 ```
 
 For L3 you can add an IP address: ( could annotate !!!type=bridged,ip=# for L2, and comment out )
+Note that '${/system!!!}' resolves to the node's relative ID (leaf1=1, leaf2=2, etc.)
 ```
 enter candidate
 /interface ethernet-1/3 subinterface 1000
-ipv4 address 10.10.10.1/24
+ipv4 address 10.10.${/system!!!}.1/24
 commit now
 # use 'discard now' to undo
 ```
