@@ -196,9 +196,9 @@ prefix-set loopbacks {
 policy export-loopbacks {
   statement 10 {
     match { prefix-set loopbacks }
-    action { accept {} }
+    action { accept { } }
   }
-  default-action { reject {} }
+  default-action { reject { } }
 }
 /network-instance default protocols bgp
 delete import-policy
