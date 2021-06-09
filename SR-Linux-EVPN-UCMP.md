@@ -6,6 +6,7 @@ Based on the BGP/EVPN overlay configuration for a leaf/spine topology, this snip
 
 Add a client interface to the default VRF, and commit:
 ```
+enter candidate
 /interface ethernet-1/1
 vlan-tagging true
 subinterface 1000
