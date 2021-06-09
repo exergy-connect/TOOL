@@ -103,7 +103,7 @@ commit now
 ```
 enter candidate
 /network-instance default protocols bgp
-neighbor 1.1.0.1
+neighbor ${/network-instance[name=default]/protocols/bgp/neighbor[peer-address=1.1.0.1]/admin-state|'1.1.0.1' if _=='' else '1.1.0.2'}
 admin-state enable
 peer-group evpn-rr
 commit now
