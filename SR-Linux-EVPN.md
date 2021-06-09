@@ -211,7 +211,7 @@ To check the VXLAN tunnels (on leaf):
 For example using Alpine Linux:
 ```
 docker exec -it clab-evpn-lab-h1 /bin/sh
-HOST_ID=$(echo \`hostname -s\` | sed 's/[^0-9]*//g')
+HOST_ID=$(echo `hostname -s` | sed 's/[^0-9]*//g')
 
 ip link add link e1-1 name e1-1.1000 type vlan id 1000
 ip link set e1-1.1000 up
