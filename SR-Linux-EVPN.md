@@ -202,6 +202,11 @@ To verify that EVPN routes are being sent to the Route Reflector (spines):
 ```
 /show network-instance default protocols bgp neighbor 1.1.0.1 advertised-routes evpn
 ```
+
+To check the VXLAN tunnels (on leaf):
+```
+/info from state network-instance default tunnel-table ipv4
+`
 ### Testing L2 with Linux hosts
 For example using Alpine Linux:
 ```
