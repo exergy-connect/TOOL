@@ -13,7 +13,9 @@ subinterface 1000
 type routed
 ipv4 address 10.10.10.10/32
 exit
+exit
 ipv6 address 2001::10:10:10:10/128
+exit
 exit
 vlan encap single-tagged vlan-id 1000
 admin-state enable
