@@ -215,6 +215,6 @@ policy export-loopbacks {
 /network-instance default protocols bgp
 delete import-policy
 delete export-policy
-group ${/network-instance[name=default]/protocols/bgp/group[group-name=evpn-rr]/group_name|'spines' if _ else 'leaves'} export-policy export-loopbacks
+group ${//system/lldp/system-name|'spines' if 'leaf' in _ else 'leaves'} export-policy export-loopbacks
 commit now
 ```
