@@ -211,7 +211,7 @@ To check the VXLAN tunnels (on leaf):
 For example using Alpine Linux:
 ```
 docker exec -it clab-evpn-lab-h1 /bin/sh
-HOST_ID=$(echo `hostname -s` | sed 's/[^0-9]*//g')
+HOST_ID=$(echo \`hostname -s\` | sed 's/[^0-9]*//g')
 
 ip link add link e1-1 name e1-1.1000 type vlan id 1000
 ip link set e1-1.1000 up
@@ -223,6 +223,5 @@ ip -6 a add 2000:192:168:1::${HOST_ID}/64 dev e1-1.1000
 After assigning each leaf a unique /24 subnet:
 ```
 /network-instance overlay-vrf
-ping 10.10.$\{/system!!!|2 if int(_)==1 else 1\}.1
-
+ping 10.10.${/system!!!|2 if int(_)==1 else 1}.1
 ```
