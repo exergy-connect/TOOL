@@ -223,5 +223,6 @@ ip -6 a add 2000:192:168:1::${HOST_ID}/64 dev e1-1.1000
 After assigning each leaf a unique /24 subnet:
 ```
 /network-instance overlay-vrf
-ping 10.10.${/system!!!|2 if int(_)==1 else 1}.1
+ping 10.10.$\{/system!!!|2 if int(_)==1 else 1\}.1
+
 ```
