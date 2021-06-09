@@ -19,6 +19,34 @@ commit now
 
 ## Spines
 
+Before we begin, let's take a look at the starting configuration on the spine:
+```
+/show network-instance default protocols bgp neighbor
+```
+
+This should look something like this:
+```
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+BGP neighbor summary for network-instance "default"
+Flags: S static, D dynamic, L discovered by LLDP, B BFD enabled, - disabled, * slow
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
++-----------------------+---------------------------------+-----------------------+--------+------------+------------------+------------------+----------------+---------------------------------+
+|       Net-Inst        |              Peer               |         Group         | Flags  |  Peer-AS   |      State       |      Uptime      |    AFI/SAFI    |         [Rx/Active/Tx]          |
++=======================+=================================+=======================+========+============+==================+==================+================+=================================+
+| default               | 192.168.0.1                     | leaves                | DB     | 65001      | established      | 0d:0h:2m:48s     | ipv4-unicast   | [1/1/2]                         |
+|                       |                                 |                       |        |            |                  |                  | ipv6-unicast   | [1/1/2]                         |
+| default               | 192.168.0.3                     | leaves                | DB     | 65002      | established      | 0d:0h:3m:3s      | ipv4-unicast   | [1/1/2]                         |
+|                       |                                 |                       |        |            |                  |                  | ipv6-unicast   | [1/1/2]                         |
++-----------------------+---------------------------------+-----------------------+--------+------------+------------------+------------------+----------------+---------------------------------+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Summary:
+0 configured neighbors, 0 configured sessions are established,0 disabled peers
+2 dynamic peers
+```
+
+Note how each leaf and spine are advertising their loopback IPs, the spine is using all the routes it receives, and sends back both its own loopback and the loopback of the other leaves (1 other in this case)
+
 1. Configure each spine as an iBGP EVPN Route Reflector, using the default network instance (uses CLI enhancement to resolve router-id):
 ```
 enter candidate
