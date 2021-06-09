@@ -197,21 +197,12 @@ commit now
 # use 'discard now' to undo
 ```
 
-If the system complains about a mismatch of tagged and untagged traffic on the same L3 interface, change the subinterface to be tagged:
-```
-enter candidate
-/interface ethernet-1/3 subinterface 0 vlan encap 
-delete untagged
-single-tagged vlan-id 1
-commit now
-```
 ## Verification
 To verify that EVPN routes are being sent to the Route Reflector (spines):
 ```
 /show network-instance default protocols bgp neighbor 1.1.0.1 advertised-routes evpn
 ```
-
-### Testing with Linux hosts
+### Testing L2 with Linux hosts
 For example using Alpine Linux:
 ```
 docker exec -it clab-evpn-lab-h1 /bin/sh
@@ -223,26 +214,9 @@ ip a add 192.168.1.${HOST_ID}/24 dev e1-1.1000
 ip -6 a add 2000:192:168:1::${HOST_ID}/64 dev e1-1.1000
 ```
 
-## Fabric and overlay export policies
-
-Fabric export policy
+### Testing L3 from SR Linux
+After assigning each leaf a unique /24 subnet:
 ```
-enter candidate
-/routing-policy
-prefix-set loopbacks {
-   prefix 1.1.0.0/16 mask-length-range 32..32 {
-   }
-}
-policy export-loopbacks {
-  statement 10 {
-    match { prefix-set loopbacks }
-    action { accept { } }
-  }
-  default-action { reject { } }
-}
-/network-instance default protocols bgp
-delete import-policy
-delete export-policy
-group ${//system/lldp/system-name|'spines' if 'leaf' in _ else 'leaves'} export-policy export-loopbacks
-commit now
+/network-instance overlay-vrf
+ping 10.10.${/system!!!|2 if int(_)==1 else 1}.1
 ```
