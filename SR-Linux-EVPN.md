@@ -207,6 +207,12 @@ To check the VXLAN tunnels (on leaf):
 ```
 /info from state network-instance default tunnel-table ipv4
 ```
+
+To check the EVPN RIB in/out:
+```
+info from state /network-instance default bgp-rib evpn rib-in-out
+```
+
 ### Testing L2 with Linux hosts
 For example using Alpine Linux:
 ```
