@@ -11,10 +11,10 @@ enter candidate
 vlan-tagging true
 subinterface 1000
 type routed
-ipv4 address 10.10.10.10/32
+ipv4 address ${/interface[name=ethernet-1/1]/subinterface[index=0]/ipv4/address/ip-prefix}
 exit
 exit
-ipv6 address 2001::10:10:10:10/128
+ipv6 address ${/interface[name=ethernet-1/1]/subinterface[index=0]/ipv6/address/ip-prefix}
 exit
 exit
 vlan encap single-tagged vlan-id 1000
