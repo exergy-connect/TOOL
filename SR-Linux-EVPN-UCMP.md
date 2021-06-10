@@ -27,7 +27,7 @@ commit now
 
 ## Leaves
 
-Move the host BGP session from the default VRF to the overlay: TODO get peer IPs from state?
+Move host BGP sessions from the default VRF to the overlay, using dynamic neighbors: TODO get peer IPs from state?
 ```
 enter candidate
 /network-instance default protocols bgp delete neighbor 192.168.0.133
@@ -35,7 +35,9 @@ enter candidate
 autonomous-system ${/network-instance[name=default]/protocols/bgp/autonomous-system}
 router-id ${/network-instance[name=default]/protocols/bgp/router-id}
 group hosts admin-state enable peer-as ${/network-instance[name=default]/protocols/bgp/group[group-name=hosts]/peer-as}
-neighbor 192.168.0.133 admin-state enable peer-group hosts
+dynamic-neighbors accept match 192.168.0.0/24 
+allowed-peer-as [${/network-instance[name=default]/protocols/bgp/group[group-name=hosts]/peer-as}] 
+peer-group hosts
 commit now
 ```
 
