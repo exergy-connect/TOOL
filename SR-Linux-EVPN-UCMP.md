@@ -34,6 +34,7 @@ enter candidate
 /network-instance overlay-vrf protocols bgp 
 autonomous-system ${/network-instance[name=default]/protocols/bgp/autonomous-system}
 router-id ${/network-instance[name=default]/protocols/bgp/router-id}
+group hosts admin-state enable peer-as ${/network-instance[name=default]/protocols/bgp/group[group-name=hosts]/peer-as}
 neighbor 192.168.0.133 admin-state enable peer-group hosts
 commit now
 ```
