@@ -31,7 +31,10 @@ Move the host BGP session from the default VRF to the overlay: TODO get peer IPs
 ```
 enter candidate
 /network-instance default protocols bgp delete neighbor 192.168.0.133
-/network-instance overlay-vrf protocols bgp neighbor 192.168.0.133 admin-state enable peer-group hosts
+/network-instance overlay-vrf protocols bgp 
+autonomous-system ${/network-instance[name=default]/protocols/bgp/autonomous-system}
+router-id ${/network-instance[name=default]/protocols/bgp/router-id}
+neighbor 192.168.0.133 admin-state enable peer-group hosts
 commit now
 ```
 
