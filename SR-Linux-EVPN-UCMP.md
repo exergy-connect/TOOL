@@ -20,8 +20,8 @@ exit
 vlan encap single-tagged vlan-id 1000
 admin-state enable
 /network-instance default
-interface ethernet-1/1.1000
 delete interface ethernet-1/1.0
+interface ethernet-1/1.1000
 commit now
 ```
 
