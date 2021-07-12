@@ -91,6 +91,25 @@ vxlan-interface ${PORT} {
         }
     }
 ```
+## Create an Integrated Routing and Bridging (IRB) interface
+To connect the L2 LAG with the rest of the network, an IRB\<N\> (N=0..255) interface to a routed VRF can be used, using an anycast gateway construct:
+```
+/interface irb0
+admin-state enable
+subinterface ${PORT} {
+    admin-state enable
+    ipv4 {
+        address 10.10.10.1/24 {
+           anycast-gw true
+           primary
+        }
+    }
+    ipv6 {
+    }
+    anycast-gw {
+    }
+}
+```
 
 ## Create a MAC-VRF (broadcast domain)
 
