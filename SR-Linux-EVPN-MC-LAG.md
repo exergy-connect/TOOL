@@ -61,7 +61,7 @@ The EVPN route-target and route-distinguisher can be automatically derived from 
 evpn {
   ethernet-segments {
         bgp-instance 1 {
-            ethernet-segment es-lag{PORT} {
+            ethernet-segment es-lag${PORT} {
                 admin-state enable
                 esi 00:12:12:12:12:12:12:00:00:0${PORT}
                 interface lag${PORT}
