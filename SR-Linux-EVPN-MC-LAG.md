@@ -125,6 +125,8 @@ Naming is arbitrary
     admin-state enable
     interface lag${PORT}.0 {
     }
+    interface irb0.${PORT} {
+    }
     vxlan-interface vxlan0.${PORT} {
     }
     protocols {
