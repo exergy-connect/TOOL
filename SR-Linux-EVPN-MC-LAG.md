@@ -125,4 +125,8 @@ Naming is arbitrary
  ```
  
  # Conclusion
- And that's it!
+ And that's it! You can verify the LAG interface and MAC learning for the newly created LAG as follows:
+ ```
+ /show lag lag${PORT}
+ /show network-instance mac-vrf-lag${PORT} bridge-table mac-table mac
+ ```
