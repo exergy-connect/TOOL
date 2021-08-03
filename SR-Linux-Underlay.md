@@ -41,6 +41,7 @@ enter candidate
 delete protocols bgp
 protocols bgp {
         admin-state enable
+        router-id 1.1.1.1
         autonomous-system 65000
         dynamic-neighbors {
             accept {
