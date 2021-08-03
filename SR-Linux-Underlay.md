@@ -36,12 +36,17 @@ commit now
 Using BGP as IGP, with dynamic neighbors:
 ```
 enter candidate
+/routing-policy
+policy accept-all {
+   default-action { accept { } }
+}
 /network-instance default
 delete protocols bgp
 protocols bgp {
         admin-state enable
         router-id 1.1.0.1
         autonomous-system 65000
+        export-policy accept-all
         dynamic-neighbors {
             accept {
                 match 192.168.0.0/24 {
@@ -98,12 +103,17 @@ commit now
 Using BGP as IGP:
 ```
 enter candidate
+/routing-policy
+policy accept-all {
+   default-action { accept { } }
+}
 /network-instance default
 delete protocols bgp
 protocols bgp {
         admin-state enable
         router-id 1.1.1.1
         autonomous-system 65001
+        export-policy accept-all
         group spines {
             admin-state enable
             peer-as 65000
