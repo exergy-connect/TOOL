@@ -1,7 +1,7 @@
 # SR Linux BGP EVPN configuration
 
 The following CLI snippets configure an SR Linux Leaf/Spine topology for BGP EVPN IPv4 with peering on loopbacks.
-It assumes the underlay is already setup, with link interface IPs and either BGP, OSPF or ISIS to exchange routes.
+It assumes the underlay is already setup, with link interface IPs and either BGP, OSPF or ISIS to exchange routes (like [this](https://github.com/exergy-connect/TOOL/blob/main/SR-Linux-Underlay.md) for example).
 Before you start, make sure that the node you're working on is annotated with its relative ID.
 
 For spine1/leaf1:
