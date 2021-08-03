@@ -15,7 +15,12 @@ enter candidate
         ipv4 { address 192.168.0.0/31 { } }
         ipv6 { address 2001::192:168:0:0/127 { } }
     }
- commit now
+/delete network-instance default
+/network-instance default
+type default
+admin-state enable
+interface ethernet-1/1.0 { }
+commit now
 ```
 
 Leaf1:
@@ -31,5 +36,10 @@ enter candidate
         ipv4 { address 192.168.0.1/31 { } }
         ipv6 { address 2001::192:168:0:1/127 { } }
     }
- commit now
+/delete network-instance default
+/network-instance default
+type default
+admin-state enable
+interface ethernet-1/1.0 { }
+commit now
 ```
