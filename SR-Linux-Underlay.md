@@ -81,3 +81,20 @@ admin-state enable
 interface ethernet-1/1.0 { }
 commit now
 ```
+
+Using BGP as IGP:
+```
+enter candidate
+/network-instance default
+delete protocols bgp
+protocols bgp {
+        admin-state enable
+        router-id 1.1.1.2
+        autonomous-system 65001
+        group spines {
+            admin-state enable
+            peer-as 65000
+        }
+    }
+commit now
+```
