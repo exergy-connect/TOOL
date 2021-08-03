@@ -20,7 +20,7 @@ commit now
 
 Set an environment variable for the IBGP AS number to use in the snippets below:
 ```
-${AS|4200000000}
+${AS=4200000000}
 ```
 
 ## Spines
@@ -153,7 +153,7 @@ Configure BGP EVPN:
 ```
 /network-instance overlay-vrf
 protocols bgp-vpn bgp-instance 1 
-route-target import-rt target:${AS}:10000 export-rt target:${AS}:10000
+route-target import-rt target:${AS|_ if _ else 65000}:10000 export-rt target:${AS|_ if _ else 65000}:10000
 exit
 exit
 bgp-evpn bgp-instance 1
