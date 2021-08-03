@@ -73,7 +73,7 @@ enter candidate
 /network-instance default protocols bgp
 dynamic-neighbors accept match 1.1.1.0/24
 peer-group evpn
-allowed-peer-as [${/network-instance[name=default]/protocols/bgp/autonomous-system}]
+allowed-peer-as [${AS|_ if _ else 65000}]
 commit now
 ```
 
