@@ -12,14 +12,8 @@ enter candidate
     subinterface 0 {
         type routed
         admin-state enable
-        ipv4 {
-            address 192.168.0.0/31 {
-            }
-        }
-        ipv6 {
-            address 2001::192:168:0:0/127 {
-            }
-        }
+        ipv4 { address 192.168.0.0/31 { } }
+        ipv6 { address 2001::192:168:0:0/127 { } }
     }
  commit now
 ```
@@ -34,14 +28,8 @@ enter candidate
     subinterface 0 {
         type routed
         admin-state enable
-        ipv4 {
-            address 192.168.0.1/31 {
-            }
-        }
-        ipv6 {
-            address 2001::192:168:0:1/127 {
-            }
-        }
+        ipv4 { address 192.168.0.1/31 { } }
+        ipv6 { address 2001::192:168:0:1/127 { } }
     }
  commit now
 ```
