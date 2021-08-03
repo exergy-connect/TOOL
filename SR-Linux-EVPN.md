@@ -18,6 +18,11 @@ commit now
 ```
 (etc.)
 
+Set an environment variable for the IBGP AS number to use in the snippets below:
+```
+${AS|4200000000}
+```
+
 ## Spines
 
 Before we begin, let's take a look at the starting configuration on the spine.
@@ -91,9 +96,9 @@ enter candidate
 evpn rapid-update true
 group evpn-rr
 transport local-address ${/network-instance[name=default]/protocols/bgp/router-id}
-local-as 65000
+local-as ${AS|_ if _ else 65000}
 exit
-peer-as 65000
+peer-as ${AS|_ if _ else 65000}
 ipv4-unicast admin-state disable
 ipv6-unicast admin-state disable
 evpn
@@ -148,7 +153,7 @@ Configure BGP EVPN:
 ```
 /network-instance overlay-vrf
 protocols bgp-vpn bgp-instance 1 
-route-target import-rt target:65000:10000 export-rt target:65000:10000
+route-target import-rt target:${AS}:10000 export-rt target:${AS}:10000
 exit
 exit
 bgp-evpn bgp-instance 1
