@@ -56,6 +56,10 @@ protocols bgp {
             admin-state enable
             peer-as 65001
         }
+        ebgp-default-policy {
+           import-reject-all false
+           export-reject-all false
+        }
     }
 commit now
 ```
@@ -107,6 +111,10 @@ protocols bgp {
         neighbor 192.168.0.0 {
             admin-state enable
             peer-group spines
+        }
+        ebgp-default-policy {
+           import-reject-all false
+           export-reject-all false
         }
     }
 commit now
