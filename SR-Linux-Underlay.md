@@ -105,5 +105,5 @@ commit now
 
 Check BGP peering:
 ```
-/show network-instance default protocols bgp neighbors
+/show network-instance default protocols bgp neighbor
 ```
