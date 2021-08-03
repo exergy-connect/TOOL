@@ -5,6 +5,7 @@ The snippets below can be used to configure an SR Linux node with basic underlay
 Spine1:
 ```
 enter candidate
+/delete interface ethernet-1/1
 /interface ethernet-1/1
     description "Basic underlay connection to Leaf1"
     admin-state enable
@@ -26,6 +27,7 @@ enter candidate
 Leaf1:
 ```
 enter candidate
+/delete interface ethernet-1/1
 /interface ethernet-1/1
     description "Basic underlay connection to Spine1"
     admin-state enable
