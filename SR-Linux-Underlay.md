@@ -28,8 +28,35 @@ enter candidate
 /network-instance default
 type default
 admin-state enable
+router-id 1.1.1.1
 interface lo0.0 { }
 interface ethernet-1/1.0 { }
+commit now
+```
+
+Using BGP as IGP:
+```
+enter candidate
+/network-instance default
+delete protocols bgp
+protocols bgp {
+        admin-state enable
+        autonomous-system 65000
+        dynamic-neighbors {
+            accept {
+                match 192.168.0.0/24 {
+                    peer-group leaves
+                    allowed-peer-as [
+                        65001
+                    ]
+                }
+            }
+        }
+        group leaves {
+            admin-state enable
+            peer-as 65001
+        }
+    }
 commit now
 ```
 
