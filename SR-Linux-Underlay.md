@@ -95,6 +95,15 @@ protocols bgp {
             admin-state enable
             peer-as 65000
         }
+        neighbor 192.168.0.0 {
+            admin-state enable
+            peer-group spines
+        }
     }
 commit now
+```
+
+Check BGP peering:
+```
+/show network-instance default protocols bgp neighbors
 ```
