@@ -1,6 +1,6 @@
 # Basic underlay configuration for spine and leaf
 
-The snippets below can be used to configure an SR Linux node with basic underlay connections between spines and leaves:
+The snippets below can be used to configure a pair of SR Linux nodes with basic underlay connectivity and BGP between spines and leaves:
 
 Spine1:
 ```
