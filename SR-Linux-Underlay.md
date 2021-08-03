@@ -21,27 +21,26 @@ enter candidate
     admin-state enable
     subinterface 0 {
         admin-state enable
-        ipv4 { address 1.1.1.1/32 { } }
-        ipv6 { address 2001::1:1:1:1/128 { } }
+        ipv4 { address 1.1.0.1/32 { } }
+        ipv6 { address 2001::1:1:0:1/128 { } }
     }
 /delete network-instance default
 /network-instance default
 type default
 admin-state enable
-router-id 1.1.1.1
 interface lo0.0 { }
 interface ethernet-1/1.0 { }
 commit now
 ```
 
-Using BGP as IGP:
+Using BGP as IGP, with dynamic neighbors:
 ```
 enter candidate
 /network-instance default
 delete protocols bgp
 protocols bgp {
         admin-state enable
-        router-id 1.1.1.1
+        router-id 1.1.0.1
         autonomous-system 65000
         dynamic-neighbors {
             accept {
@@ -74,10 +73,20 @@ enter candidate
         ipv4 { address 192.168.0.1/31 { } }
         ipv6 { address 2001::192:168:0:1/127 { } }
     }
+/delete interface lo0
+/interface lo0
+    description "Loopback on Leaf1"
+    admin-state enable
+    subinterface 0 {
+        admin-state enable
+        ipv4 { address 1.1.1.1/32 { } }
+        ipv6 { address 2001::1:1:1:1/128 { } }
+    }
 /delete network-instance default
 /network-instance default
 type default
 admin-state enable
+interface lo0.0 { }
 interface ethernet-1/1.0 { }
 commit now
 ```
@@ -89,7 +98,7 @@ enter candidate
 delete protocols bgp
 protocols bgp {
         admin-state enable
-        router-id 1.1.1.2
+        router-id 1.1.1.1
         autonomous-system 65001
         group spines {
             admin-state enable
