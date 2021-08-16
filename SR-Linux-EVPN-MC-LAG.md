@@ -7,11 +7,11 @@ Before you start, configure an environment variable with the port number to use 
 
 For ethernet-1/3:
 ```
-${PORT|3}
+${PORT=3}
 ```
 For ethernet-1/4:
 ```
-${PORT|4}
+${PORT=4}
 ```
 (etc.)
 
