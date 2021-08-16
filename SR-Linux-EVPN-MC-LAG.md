@@ -76,6 +76,20 @@ bgp-vpn {
     }
 ```
 
+## Creating a system interface for VXLAN transport
+
+VXLAN packets are sent between system0 loopback interfaces (each node needs a unique IP):
+```
+/interface system0
+admin-state enable
+subinterface 0 {
+   admin-state enable
+   ipv4 {
+       address 1.1.1.1/32 { }
+   }
+}
+```
+
 ## Creating a L2 VXLAN interface
 
 Here we use a simple convention VNI=port, this is not required
